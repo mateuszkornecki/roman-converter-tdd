@@ -8,9 +8,11 @@ class RomanConverter extends React.Component {
 
     handleChange = (event) => {
         const arabic = event.target.value;
-        let roman = "I";
+        let roman = "none";
         if (arabic === "5") {
             roman = "V"
+        } else if (arabic === "1") {
+            roman = "I"
         }
 
         if (event.target.value) {
@@ -61,6 +63,14 @@ describe('RomanConverter', () => {
         fireEvent.change(getByLabelText(/arabic/i), { target: { value: "5" } });
         expect(() => {
             getByText("Roman: V")
+        }).not.toThrow();
+    });
+
+    it('converts 0 to none', () => {
+        const { getByText, getByLabelText } = render(<RomanConverter />);
+        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "0" } });
+        expect(() => {
+            getByText("Roman: none")
         }).not.toThrow();
     });
 
