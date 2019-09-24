@@ -36,7 +36,7 @@ describe('RomanConverter', () => {
         }).not.toThrow();
     });
 
-    it('converts 0 to none', () => {
+    it('does not convert 0 to any roman number ', () => {
         const { getByText, getByLabelText } = render(<RomanConverter />);
         fireEvent.change(getByLabelText(/arabic/i), { target: { value: "0" } });
         expect(() => {
