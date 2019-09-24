@@ -6,7 +6,8 @@ class RomanConverter extends React.Component {
     render() {
         return (
             <>
-                <label>arabic<input /></label>
+                <label>Arabic:<input type="number" /></label>
+                <h1>Roman: none</h1>
             </>
         )
     }
@@ -16,9 +17,17 @@ describe('RomanConverter', () => {
     afterEach(cleanup);
 
     it('has an input field ', () => {
-        const { getByLabelText } = render(<RomanConverter />);
+        const { getByText, getByLabelText } = render(<RomanConverter />);
         expect(() => {
-            getByLabelText(/arabic/);
+            getByLabelText(/arabic/i);
+        }).not.toThrow();
+    });
+
+    it('shows no roman numbers by default', () => {
+        const { getByText } = render(<RomanConverter />);
+
+        expect(() => {
+            getByText("Roman: none")
         }).not.toThrow();
     });
 
