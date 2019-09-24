@@ -28,19 +28,11 @@ describe('RomanConverter', () => {
         }).not.toThrow();
     });
 
-    it('converts 5 to V', () => {
+    it.skip('converts 2019 to MMXIX', () => {
         const { getByText, getByLabelText } = render(<RomanConverter />);
-        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "5" } });
+        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "2019" } });
         expect(() => {
-            getByText("Roman: V")
-        }).not.toThrow();
-    });
-
-    it('does not convert 0 to any roman number ', () => {
-        const { getByText, getByLabelText } = render(<RomanConverter />);
-        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "0" } });
-        expect(() => {
-            getByText("Roman: none")
+            getByText("Roman: MMXIX")
         }).not.toThrow();
     });
 
