@@ -28,7 +28,10 @@ describe('toRoman', () => {
         [899, "DCCCXCIX"],
         [900, "CM"],
         [999, "CMXCIX"],
-        [1000, "M"]
+        [1000, "M"],
+        [1999, "MCMXCIX"],
+        [2000, "MM"],
+        [3999, "MMMCMXCIX"]
 
     ])('converts %d to %s',
         (arabic, expectedRoman) => {

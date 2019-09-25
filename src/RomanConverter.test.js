@@ -28,7 +28,7 @@ describe('RomanConverter', () => {
         }).not.toThrow();
     });
 
-    it.skip('converts 2019 to MMXIX', () => {
+    it('converts 2019 to MMXIX', () => {
         const { getByText, getByLabelText } = render(<RomanConverter />);
         fireEvent.change(getByLabelText(/arabic/i), { target: { value: "2019" } });
         expect(() => {
