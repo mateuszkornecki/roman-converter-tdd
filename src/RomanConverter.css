@@ -1,0 +1,13 @@
+input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    margin: 0 1rem;
+    font-size: calc(10px + 2vmin);
+    color: #09d3ac;
+}
+
+mark {
+    color: #09d3ac;
+    background: none;
+}
