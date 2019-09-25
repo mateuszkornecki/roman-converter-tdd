@@ -1,4 +1,4 @@
-import toRoman from './toRoman';
+import { toRoman } from './toRoman';
 
 describe('toRoman', () => {
 

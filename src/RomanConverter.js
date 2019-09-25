@@ -1,5 +1,5 @@
 import React from 'react';
-import toRoman from './toRoman';
+import { toRoman } from './toRoman';
 
 class RomanConverter extends React.Component {
     state = {
