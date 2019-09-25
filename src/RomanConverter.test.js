@@ -16,7 +16,7 @@ describe('RomanConverter', () => {
         const { getByText } = render(<RomanConverter />);
 
         expect(() => {
-            getByText("Roman: none")
+            getByText("none")
         }).not.toThrow();
     });
 
@@ -24,7 +24,7 @@ describe('RomanConverter', () => {
         const { getByText, getByLabelText } = render(<RomanConverter />);
         fireEvent.change(getByLabelText(/arabic/i), { target: { value: "1" } });
         expect(() => {
-            getByText("Roman: I")
+            getByText("I")
         }).not.toThrow();
     });
 
@@ -32,7 +32,7 @@ describe('RomanConverter', () => {
         const { getByText, getByLabelText } = render(<RomanConverter />);
         fireEvent.change(getByLabelText(/arabic/i), { target: { value: "2019" } });
         expect(() => {
-            getByText("Roman: MMXIX")
+            getByText("MMXIX")
         }).not.toThrow();
     });
 

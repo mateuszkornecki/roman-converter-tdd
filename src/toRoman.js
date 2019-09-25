@@ -5,7 +5,7 @@ const toRoman = (arabic) => {
     if (arabic > 0 && arabic < 4000) {
         roman = convertArabic(arabic);
     }
-    else alert("the converter supports numbers from 1 to 3999");
+    // else alert("the converter supports numbers from 1 to 3999");
     return roman;
 }
 
