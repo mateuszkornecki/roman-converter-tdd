@@ -92,6 +92,7 @@ const convertArabicLesserThanFourThousand = (arabic) => {
         return roman.join('');
     } else return convertArabicLesserThanThousand(arabic);
 }
+console.log(convertArabicLesserThanThousand(999));
 
 const convertArabic = convertArabicLesserThanFourThousand;
 export { convertArabic };
