@@ -37,5 +37,12 @@ const convertArabicLesserThanFourty = (arabic) => {
     } else return convertArabicLesserThanTwenty(arabic);
 }
 
-const convertArabic = convertArabicLesserThanFourty;
+const convertArabicEqualFifty = (arabic) => {
+    if (arabic == 50) {
+        const roman = "L"
+        return roman;
+    } else return convertArabicLesserThanFourty(arabic);
+}
+
+const convertArabic = convertArabicEqualFifty;
 export { convertArabic };
