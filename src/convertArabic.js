@@ -43,6 +43,7 @@ const convertArabicLesserThanFiftyOne = (arabic) => {
         return roman.join('');
     } else return convertArabicLesserThanFourty(arabic);
 }
+
 const convertArabicLesserThanNinety = (arabic) => {
     if (arabic > 49) {
         const roman = ["L", convertArabicLesserThanFiftyOne(arabic - 50)];
@@ -50,5 +51,12 @@ const convertArabicLesserThanNinety = (arabic) => {
     } else return convertArabicLesserThanFiftyOne(arabic);
 }
 
-const convertArabic = convertArabicLesserThanNinety;
+const convertArabicLesserThanHundred = (arabic) => {
+    if (arabic > 89) {
+        const roman = ["X", "C", convertArabicLesserThanFourty(arabic + 10 - 100)];
+        return roman.join('');
+    } else return convertArabicLesserThanNinety(arabic);
+}
+
+const convertArabic = convertArabicLesserThanHundred;
 export { convertArabic };
