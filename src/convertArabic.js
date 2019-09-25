@@ -39,10 +39,16 @@ const convertArabicLesserThanFourty = (arabic) => {
 
 const convertArabicLesserThanFiftyOne = (arabic) => {
     if (arabic > 39) {
-        const roman = (50 - arabic > 0) ? ["X", "L", convertArabicLesserThanFourty(arabic + 10 - 50)] : ["L"];
+        const roman = ["X", "L", convertArabicLesserThanFourty(arabic + 10 - 50)];
         return roman.join('');
     } else return convertArabicLesserThanFourty(arabic);
 }
+const convertArabicLesserThanNinety = (arabic) => {
+    if (arabic > 49) {
+        const roman = ["L", convertArabicLesserThanFiftyOne(arabic - 50)];
+        return roman.join('');
+    } else return convertArabicLesserThanFiftyOne(arabic);
+}
 
-const convertArabic = convertArabicLesserThanFiftyOne;
+const convertArabic = convertArabicLesserThanNinety;
 export { convertArabic };
