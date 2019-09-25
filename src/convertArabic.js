@@ -72,12 +72,19 @@ const convertArabicLesserThanFiveHundred = (arabic) => {
     } else return convertArabicLesserThanFourHundred(arabic);
 }
 
-const convertArabicEqualToFiveHundred = (arabic) => {
-    if (arabic == 500) {
-        const roman = "D";
-        return roman;
+const convertArabicLesserThanEightHundredNinetyNine = (arabic) => {
+    if (arabic > 499) {
+        const roman = ["D", convertArabicLesserThanEightHundredNinetyNine(arabic - 500)];
+        return roman.join('');
     } else return convertArabicLesserThanFiveHundred(arabic);
 }
 
-const convertArabic = convertArabicEqualToFiveHundred;
+const convertArabicEqualToNineHundred = (arabic) => {
+    if (arabic == 900) {
+        const roman = ["C", "M"];
+        return roman.join('');
+    } else return convertArabicLesserThanEightHundredNinetyNine(arabic);
+}
+
+const convertArabic = convertArabicEqualToNineHundred;
 export { convertArabic };
