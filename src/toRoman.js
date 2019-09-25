@@ -1,9 +1,9 @@
-import { convertArabicLesserThanTwenty } from './convertArabic';
+import { convertArabic } from './convertArabic';
 
 const toRoman = (arabic) => {
     let roman = null;
-    if (arabic <= 20) {
-        roman = convertArabicLesserThanTwenty(arabic);
+    if (arabic < 40) {
+        roman = convertArabic(arabic);
     }
     return roman;
 }

@@ -30,4 +30,12 @@ const convertArabicLesserThanTwenty = (arabic) => {
     } else return convertArabicLesserThanEleven(arabic);
 }
 
-export { convertArabicLesserThanTwenty };
+const convertArabicLesserThanFourty = (arabic) => {
+    if (arabic > 20) {
+        const roman = ["XX", convertArabicLesserThanTwenty(arabic - 20)];
+        return roman.join('');
+    } else return convertArabicLesserThanTwenty(arabic);
+}
+
+const convertArabic = convertArabicLesserThanFourty;
+export { convertArabic };
