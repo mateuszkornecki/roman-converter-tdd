@@ -58,12 +58,12 @@ const convertArabicLesserThanHundred = (arabic) => {
     } else return convertArabicLesserThanNinety(arabic);
 }
 
-const convertArabicEqualHundred = (arabic) => {
+const convertArabicLesserThanFourHundred = (arabic) => {
     if (arabic > 99) {
-        const roman = ["C", convertArabicLesserThanFourty(arabic - 100)];
+        const roman = ["C", convertArabicLesserThanFourHundred(arabic - 100)];
         return roman.join('');
     } else return convertArabicLesserThanHundred(arabic);
 }
 
-const convertArabic = convertArabicEqualHundred;
+const convertArabic = convertArabicLesserThanFourHundred;
 export { convertArabic };
