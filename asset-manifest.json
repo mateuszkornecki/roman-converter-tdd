@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/roman-converter-tdd/static/css/main.f20e0042.chunk.css",
+    "main.js": "/roman-converter-tdd/static/js/main.a9499397.chunk.js",
+    "main.js.map": "/roman-converter-tdd/static/js/main.a9499397.chunk.js.map",
+    "runtime-main.js": "/roman-converter-tdd/static/js/runtime-main.8522d48b.js",
+    "runtime-main.js.map": "/roman-converter-tdd/static/js/runtime-main.8522d48b.js.map",
+    "static/js/2.7a247ad1.chunk.js": "/roman-converter-tdd/static/js/2.7a247ad1.chunk.js",
+    "static/js/2.7a247ad1.chunk.js.map": "/roman-converter-tdd/static/js/2.7a247ad1.chunk.js.map",
+    "index.html": "/roman-converter-tdd/index.html",
+    "precache-manifest.9e7f5d56e6a3b96abe4f4bc7a8d246c5.js": "/roman-converter-tdd/precache-manifest.9e7f5d56e6a3b96abe4f4bc7a8d246c5.js",
+    "service-worker.js": "/roman-converter-tdd/service-worker.js",
+    "static/css/main.f20e0042.chunk.css.map": "/roman-converter-tdd/static/css/main.f20e0042.chunk.css.map"
+  }
+}
