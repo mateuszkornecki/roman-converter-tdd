@@ -10,7 +10,8 @@ describe('toRoman', () => {
         [5, "V"],
         [8, "VIII"],
         [9, "IX"],
-        [10, "X"]
+        [10, "X"],
+        [19, "XIX"]
     ])('converts %d to %s',
         (arabic, expectedRoman) => {
             expect(toRoman(arabic)).toEqual(expectedRoman);
