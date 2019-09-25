@@ -2,7 +2,7 @@ import { convertArabic } from './convertArabic';
 
 const toRoman = (arabic) => {
     let roman = null;
-    if (arabic <= 40 || arabic == 50) {
+    if (arabic < 51) {
         roman = convertArabic(arabic);
     }
     return roman;

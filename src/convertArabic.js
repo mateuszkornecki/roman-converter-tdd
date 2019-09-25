@@ -37,12 +37,12 @@ const convertArabicLesserThanFourty = (arabic) => {
     } else return convertArabicLesserThanTwenty(arabic);
 }
 
-const convertArabicEqualFourtyOrFifty = (arabic) => {
-    if (arabic == 50 || arabic == 40) {
-        const roman = [convertArabicLesserThanFourty(50 - arabic), "L"]
+const convertArabicLesserThanFiftyOne = (arabic) => {
+    if (arabic > 39) {
+        const roman = (50 - arabic > 0) ? ["X", "L", convertArabicLesserThanFourty(arabic + 10 - 50)] : ["L"];
         return roman.join('');
     } else return convertArabicLesserThanFourty(arabic);
 }
 
-const convertArabic = convertArabicEqualFourtyOrFifty;
+const convertArabic = convertArabicLesserThanFiftyOne;
 export { convertArabic };
