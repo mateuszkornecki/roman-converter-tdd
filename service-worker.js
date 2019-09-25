@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/roman-converter-tdd/precache-manifest.9e7f5d56e6a3b96abe4f4bc7a8d246c5.js"
+  "/roman-converter-tdd/precache-manifest.e26e9b9a9188f6364ac30994e2890424.js"
 );
 
 self.addEventListener('message', (event) => {
