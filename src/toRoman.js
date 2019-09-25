@@ -18,16 +18,17 @@ const convertArabicLesserThanNine = (arabic) => {
     }
 }
 
-// const convertArabicBetweenNineAndTen = (arabic) => {
-//     const roman = 
-// }
+const convertArabicBetweenNineAndTen = (arabic) => {
+    const roman = [convertArabicLesserThanNine(10 - arabic), "X"];
+    return roman.join('');
+}
 
 const toRoman = (arabic) => {
     let roman = null;
     if (arabic <= 8) {
         roman = convertArabicLesserThanNine(arabic);
-    } else if (arabic == 10) {
-        roman = "X"
+    } else if (arabic <= 10) {
+        roman = convertArabicBetweenNineAndTen(arabic);
     }
     return roman;
 }
