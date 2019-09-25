@@ -28,6 +28,22 @@ describe('RomanConverter', () => {
         }).not.toThrow();
     });
 
+    it('converts 99 to XCIX', () => {
+        const { getByText, getByLabelText } = render(<RomanConverter />);
+        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "99" } });
+        expect(() => {
+            getByText("XCIX")
+        }).not.toThrow();
+    });
+
+    it('converts 999 to CMXCIX', () => {
+        const { getByText, getByLabelText } = render(<RomanConverter />);
+        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "999" } });
+        expect(() => {
+            getByText("CMXCIX")
+        }).not.toThrow();
+    });
+
     it('converts 2019 to MMXIX', () => {
         const { getByText, getByLabelText } = render(<RomanConverter />);
         fireEvent.change(getByLabelText(/arabic/i), { target: { value: "2019" } });
