@@ -10,7 +10,7 @@ const convertionForLesserThanFour = (arabic) => {
 }
 
 const convertionForHigherThanThreeLesserThanFive = (arabic) => {
-    const roman = [convertionForLesserThanFour(5 - arabic), "V"];
+    const roman = (arabic - 5 < 0) ? [convertionForLesserThanFour(5 - arabic), "V"] : ["V", convertionForLesserThanFour(arabic - 5)];
     return roman.join('');
 }
 
@@ -19,7 +19,7 @@ const toRoman = (arabic) => {
     if (arabic <= 3) {
         roman = convertionForLesserThanFour(arabic);
     }
-    else if (arabic <= 5) {
+    else if (arabic <= 8) {
         roman = convertionForHigherThanThreeLesserThanFive(arabic);
     } else if (arabic == 10) {
         roman = "X"
