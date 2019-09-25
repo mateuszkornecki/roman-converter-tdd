@@ -66,8 +66,8 @@ const convertArabicLesserThanFourHundred = (arabic) => {
 }
 
 const convertArabicEqualToFourHundred = (arabic) => {
-    if (arabic == 400) {
-        const roman = ["C", "D"]
+    if (arabic > 399) {
+        const roman = ["C", "D", convertArabicLesserThanFourHundred(arabic + 100 - 500)]
         return roman.join('');
     } else return convertArabicLesserThanFourHundred(arabic);
 }

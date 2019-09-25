@@ -22,7 +22,8 @@ describe('toRoman', () => {
         [99, "XCIX"],
         [100, "C"],
         [399, "CCCXCIX"],
-        [400, "CD"]
+        [400, "CD"],
+        [499, "CDXCIX"]
 
     ])('converts %d to %s',
         (arabic, expectedRoman) => {
