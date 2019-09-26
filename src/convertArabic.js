@@ -6,8 +6,11 @@ const convertArabic = (arabic) => {
                 roman.push("I");
             }
             break;
-        case arabic >= 4 && arabic < 9:
-            roman = (arabic - 5 < 0) ? [convertArabic(5 - arabic), "V"] : ["V", convertArabic(arabic - 5)];
+        case arabic >= 4 && arabic < 5:
+            roman = [convertArabic(5 - arabic), "V"];
+            break;
+        case arabic >= 5 && arabic < 9:
+            roman = ["V", convertArabic(arabic - 5)];
             break;
         case arabic >= 9 && arabic < 11:
             roman = [convertArabic(10 - arabic), "X"];
