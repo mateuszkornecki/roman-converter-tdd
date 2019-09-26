@@ -1,96 +1,51 @@
-const convertArabicLesserThanFour = (arabic) => {
-    const roman = [];
-    if (arabic > 0) {
-        for (let i = 0; arabic - i > 0; i++) {
-            roman.push("I");
-        }
-        return roman.join('');
-    } else return null;
-}
-
-const convertArabicLesserThanNine = (arabic) => {
-    if (arabic > 3) {
-        const roman = (arabic - 5 < 0) ? [convertArabicLesserThanFour(5 - arabic), "V"] : ["V", convertArabicLesserThanFour(arabic - 5)];
-        return roman.join('');
-    } else return convertArabicLesserThanFour(arabic);
-}
-
-const convertArabicLesserThanEleven = (arabic) => {
-    if (arabic > 8) {
-        const roman = [convertArabicLesserThanNine(10 - arabic), "X"];
-        return roman.join('');
+const convertArabic = (arabic) => {
+    let roman = [];
+    switch (true) {
+        case (arabic > 0 && arabic < 4):
+            for (let i = 0; arabic - i > 0; i++) {
+                roman.push("I");
+            }
+            break;
+        case arabic >= 4 && arabic < 9:
+            roman = (arabic - 5 < 0) ? [convertArabic(5 - arabic), "V"] : ["V", convertArabic(arabic - 5)];
+            break;
+        case arabic >= 9 && arabic < 11:
+            roman = [convertArabic(10 - arabic), "X"];
+            break;
+        case arabic > 11 && arabic < 20:
+            roman = ["X", convertArabic(arabic - 10)];
+            break;
+        case arabic >= 20 && arabic < 40:
+            roman = ["XX", convertArabic(arabic - 20)];
+            break;
+        case arabic >= 40 && arabic < 50:
+            roman = ["X", "L", convertArabic(arabic + 10 - 50)];
+            break;
+        case arabic >= 50 && arabic < 90:
+            roman = ["L", convertArabic(arabic - 50)];
+            break;
+        case arabic >= 90 && arabic < 100:
+            roman = ["X", "C", convertArabic(arabic + 10 - 100)];
+            break;
+        case arabic >= 100 && arabic < 400:
+            roman = ["C", convertArabic(arabic - 100)];
+            break;
+        case arabic >= 400 && arabic < 500:
+            roman = ["C", "D", convertArabic(arabic + 100 - 500)];
+            break;
+        case arabic >= 500 && arabic < 900:
+            roman = ["D", convertArabic(arabic - 500)];
+            break;
+        case arabic >= 900 && arabic < 1000:
+            roman = ["C", "M", convertArabic(arabic + 100 - 1000)];
+            break;
+        case arabic >= 1000 && arabic < 4000:
+            roman = ["M", convertArabic(arabic - 1000)];
+            break;
+        default:
+            return null;
     }
-    else return convertArabicLesserThanNine(arabic);
+    return roman.join('');
 }
 
-const convertArabicLesserThanTwenty = (arabic) => {
-    if (arabic > 10) {
-        const roman = ["X", convertArabicLesserThanEleven(arabic - 10)]
-        return roman.join('');
-    } else return convertArabicLesserThanEleven(arabic);
-}
-
-const convertArabicLesserThanFourty = (arabic) => {
-    if (arabic > 20) {
-        const roman = ["XX", convertArabicLesserThanTwenty(arabic - 20)];
-        return roman.join('');
-    } else return convertArabicLesserThanTwenty(arabic);
-}
-
-const convertArabicLesserThanFiftyOne = (arabic) => {
-    if (arabic > 39) {
-        const roman = ["X", "L", convertArabicLesserThanFourty(arabic + 10 - 50)];
-        return roman.join('');
-    } else return convertArabicLesserThanFourty(arabic);
-}
-
-const convertArabicLesserThanNinety = (arabic) => {
-    if (arabic > 49) {
-        const roman = ["L", convertArabicLesserThanFiftyOne(arabic - 50)];
-        return roman.join('');
-    } else return convertArabicLesserThanFiftyOne(arabic);
-}
-
-const convertArabicLesserThanHundred = (arabic) => {
-    if (arabic > 89) {
-        const roman = ["X", "C", convertArabicLesserThanFourty(arabic + 10 - 100)];
-        return roman.join('');
-    } else return convertArabicLesserThanNinety(arabic);
-}
-
-const convertArabicLesserThanFourHundred = (arabic) => {
-    if (arabic > 99) {
-        const roman = ["C", convertArabicLesserThanFourHundred(arabic - 100)];
-        return roman.join('');
-    } else return convertArabicLesserThanHundred(arabic);
-}
-
-const convertArabicLesserThanFiveHundred = (arabic) => {
-    if (arabic > 399) {
-        const roman = ["C", "D", convertArabicLesserThanFourHundred(arabic + 100 - 500)]
-        return roman.join('');
-    } else return convertArabicLesserThanFourHundred(arabic);
-}
-
-const convertArabicLesserThanEightHundredNinetyNine = (arabic) => {
-    if (arabic > 499) {
-        const roman = ["D", convertArabicLesserThanEightHundredNinetyNine(arabic - 500)];
-        return roman.join('');
-    } else return convertArabicLesserThanFiveHundred(arabic);
-}
-
-const convertArabicLesserThanThousand = (arabic) => {
-    if (arabic > 899) {
-        const roman = ["C", "M", convertArabicLesserThanEightHundredNinetyNine(arabic + 100 - 1000)];
-        return roman.join('');
-    } else return convertArabicLesserThanEightHundredNinetyNine(arabic);
-}
-
-const convertArabicLesserThanFourThousand = (arabic) => {
-    if (arabic > 999) {
-        const roman = ["M", convertArabicLesserThanFourThousand(arabic - 1000)];
-        return roman.join('');
-    } else return convertArabicLesserThanThousand(arabic);
-}
-const convertArabic = convertArabicLesserThanFourThousand;
 export { convertArabic };
