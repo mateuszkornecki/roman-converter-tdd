@@ -1,50 +1,76 @@
 const toRoman = (arabic) => {
     let roman = [];
-    switch (true) {
+    const uniquePairs =
+    {
+        1000: "M",
+        900: "CM",
+        500: "D",
+        400: "CD",
+        100: "C",
+        90: "XC",
+        50: "L",
+        40: "XL",
+        20: "XX",
+        10: "X",
+        9: "IX",
+        5: "V",
+        4: "IV",
+        3: "III",
+        2: "II",
+        1: "I"
+    }
 
-        case arabic >= 1000 && arabic < 4000:
-            roman = ["M", toRoman(arabic - 1000)];
+    const arabicNumbers = Object.keys(uniquePairs).reverse();
+    const romanNumbers = Object.values(uniquePairs).reverse();
+
+    switch (true) {
+        case arabic >= arabicNumbers[0] && arabic < 4000:
+            roman = [romanNumbers[0], toRoman(arabic - arabicNumbers[0])];
             break;
-        case arabic >= 900:
-            roman = ["CM", toRoman(arabic - 900)];
+        case arabic >= arabicNumbers[1]:
+            roman = [romanNumbers[1], toRoman(arabic - arabicNumbers[1])];
             break;
-        case arabic >= 500:
-            roman = ["D", toRoman(arabic - 500)];
+        case arabic >= arabicNumbers[2]:
+            roman = [romanNumbers[2], toRoman(arabic - arabicNumbers[2])];
             break;
-        case arabic >= 400:
-            roman = ["CD", toRoman(arabic - 400)];
+        case arabic >= arabicNumbers[3]:
+            roman = [romanNumbers[3], toRoman(arabic - arabicNumbers[3])];
             break;
-        case arabic >= 100:
-            roman = ["C", toRoman(arabic - 100)];
+        case arabic >= arabicNumbers[4]:
+            roman = [romanNumbers[4], toRoman(arabic - arabicNumbers[4])];
             break;
-        case arabic >= 90:
-            roman = ["XC", toRoman(arabic - 90)];
+        case arabic >= arabicNumbers[5]:
+            roman = [romanNumbers[5], toRoman(arabic - arabicNumbers[5])];
             break;
-        case arabic >= 50:
-            roman = ["L", toRoman(arabic - 50)];
+        case arabic >= arabicNumbers[6]:
+            roman = [romanNumbers[6], toRoman(arabic - arabicNumbers[6])];
             break;
-        case arabic >= 40:
-            roman = ["XL", toRoman(arabic - 40)];
+        case arabic >= arabicNumbers[7]:
+            roman = [romanNumbers[7], toRoman(arabic - arabicNumbers[7])];
             break;
-        case arabic >= 20:
-            roman = ["XX", toRoman(arabic - 20)];
+        case arabic >= arabicNumbers[8]:
+            roman = [romanNumbers[8], toRoman(arabic - arabicNumbers[8])];
             break;
-        case arabic > 11:
-            roman = ["X", toRoman(arabic - 10)];
+        case arabic >= arabicNumbers[9]:
+            roman = [romanNumbers[9], toRoman(arabic - arabicNumbers[9])];
             break;
-        case arabic >= 9:
-            roman = [toRoman(10 - arabic), "X"];
+        case arabic >= arabicNumbers[10]:
+            roman = [romanNumbers[10]];
             break;
-        case arabic >= 5:
-            roman = ["V", toRoman(arabic - 5)];
+        case arabic >= arabicNumbers[11]:
+            roman = [romanNumbers[11], toRoman(arabic - arabicNumbers[11])];
             break;
-        case arabic >= 4:
-            roman = [toRoman(5 - arabic), "V"];
+        case arabic >= arabicNumbers[12]:
+            roman = [romanNumbers[12]];
             break;
-        case arabic > 0:
-            for (let i = 0; arabic - i > 0; i++) {
-                roman.push("I");
-            }
+        case arabic >= arabicNumbers[13]:
+            roman = [romanNumbers[13]];
+            break;
+        case arabic >= arabicNumbers[14]:
+            roman = [romanNumbers[14]];
+            break;
+        case arabic >= arabicNumbers[15]:
+            roman = [romanNumbers[15]];
             break;
         default:
             return null;
