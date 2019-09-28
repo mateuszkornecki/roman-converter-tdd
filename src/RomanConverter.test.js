@@ -51,5 +51,12 @@ describe('RomanConverter', () => {
             getByText("MMXIX")
         }).not.toThrow();
     });
+    it('converts 4000 to "please enter number < 4000"', () => {
+        const { getByText, getByLabelText } = render(<RomanConverter />);
+        fireEvent.change(getByLabelText(/arabic/i), { target: { value: "4000" } });
+        expect(() => {
+            getByText("please enter number < 4000")
+        }).not.toThrow();
+    });
 
 });
